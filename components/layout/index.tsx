@@ -8,13 +8,17 @@ interface LayoutProps {
 function Layout({ children }: LayoutProps) {
   return (
     <LayoutRoot>
-      <Header />
-      {children}
+      <div style={{ width: "1920px" }}>
+        <Header />
+        {children}
+      </div>
     </LayoutRoot>
   );
 }
 
 const LayoutRoot = styled.div`
+  display: flex;
+  justify-content: center;
   padding-top: 110px;
 `;
 
