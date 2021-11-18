@@ -31,8 +31,14 @@ const HeaderRoot = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
   padding: 13px 200px;
   background: #f6f0dc;
+  z-index: 100;
+  box-sizing: border-box;
 `;
 
 const ImageWrapper = styled.div`
