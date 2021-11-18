@@ -24,8 +24,8 @@ const Home: NextPage = () => {
   return (
     <HomeRoot>
       <Chunk1 id="chunk1">
-        <ImageArea />
-        <TextArea />
+        <ImageArea1 />
+        <TextArea1 />
         <div id="fruit">
           <Image src={main_chunk1_fruit} />
         </div>
@@ -39,13 +39,12 @@ const Home: NextPage = () => {
       <div style={{ marginTop: "160px" }} />
 
       <Chunk2 id="chunk2">
-        <div id="letters">
-          <Image src={main_chunk2} />
+        <TextArea2>
           <div id="fruit1">
             <Image src={main_chunk2_fruit1} />
           </div>
-        </div>
-        <Image src={main2} width={1440} height={970} layout="fixed" />
+        </TextArea2>
+        <ImageArea2 />
         <div id="fruit2">
           <Image src={main_chunk2_fruit2} />
         </div>
@@ -59,10 +58,8 @@ const Home: NextPage = () => {
       <div style={{ marginTop: "160px" }} />
 
       <Chunk3 id="chunk3">
-        <Image src={main3} width={1440} height={970} layout="fixed" />
-        <div id="letters">
-          <Image src={main_chunk3} />
-        </div>
+        <ImageArea3 />
+        <TextArea3 />
         <div id="fruit">
           <Image src={main_chunk3_fruit} />
         </div>
@@ -82,18 +79,9 @@ const HomeRoot = styled.div`
 
 const Chunk1 = styled.div`
   position: relative;
-  padding-top: calc(9 / 16 * 100% - 110px);
+  height: calc(100vh - 110px);
   background: #eb613a;
 
-  #letters {
-    display: flex;
-    align-items: flex-end;
-    position: absolute;
-    left: calc((9 / 16 * 100% - 110px) * 144 / 97 + 37.3px);
-    bottom: 62.73px;
-    width: 19.57%;
-    z-index: 50;
-  }
   #fruit {
     position: absolute;
     right: 0;
@@ -111,42 +99,35 @@ const Chunk1 = styled.div`
   }
 `;
 
-const ImageArea = styled.div`
+const ImageArea1 = styled.div`
   position: absolute;
   top: 0;
   left: 0;
-  width: calc((9 / 16 * 100% - 110px) * 144 / 97);
-  padding-top: calc(9 / 16 * 100% - 110px);
+  width: calc((100vh - 110px) * 144 / 97);
+  height: 100%;
   background: url("/images/main1.png");
   background-repeat: no-repeat;
   background-size: contain;
 `;
 
-const TextArea = styled.div`
+const TextArea1 = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  width: calc(100% - (9 / 16 * 100% - 110px) * 144 / 97);
-  padding-top: calc(9 / 16 * 100% - 110px);
+  width: calc(100% - (100vh - 110px) * 144 / 97);
+  height: 100%;
   background: url("/icons/main_chunk1.svg");
   background-repeat: no-repeat;
   background-size: calc(100% - 104.31px);
-  background-position: bottom 62.73px left 37.3px;
+  background-position: bottom 9.56% left 35.48%;
   z-index: 50;
 `;
 
 const Chunk2 = styled.div`
-  display: flex;
-  justify-content: flex-end;
   position: relative;
+  height: calc(100vh - 110px);
   background: #235b4e;
-  #letters {
-    display: flex;
-    align-items: flex-end;
-    position: relative;
-    padding: 0 36.52px 63.2px 0;
-    z-index: 50;
-  }
+
   #fruit1 {
     position: absolute;
     top: -50px;
@@ -169,17 +150,35 @@ const Chunk2 = styled.div`
   }
 `;
 
+const ImageArea2 = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc((100vh - 110px) * 144 / 97);
+  height: 100%;
+  background: url("/images/main2.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+`;
+
+const TextArea2 = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc(100% - (100vh - 110px) * 144 / 97);
+  height: 100%;
+  background: url("/icons/main_chunk2.svg");
+  background-repeat: no-repeat;
+  background-size: 58.65%;
+  background-position: bottom 9.63% right 18.4%;
+  z-index: 50;
+`;
+
 const Chunk3 = styled.div`
-  display: flex;
   position: relative;
+  height: calc(100vh - 110px);
   background: #e4007f;
-  #letters {
-    display: flex;
-    align-items: flex-start;
-    position: relative;
-    padding: 55.3px 0 0 37.3px;
-    z-index: 50;
-  }
+
   #fruit {
     position: absolute;
     right: 0;
@@ -196,6 +195,30 @@ const Chunk3 = styled.div`
       cursor: pointer;
     }
   }
+`;
+
+const ImageArea3 = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc((100vh - 110px) * 144 / 97);
+  height: 100%;
+  background: url("/images/main3.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+`;
+
+const TextArea3 = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(100% - (100vh - 110px) * 144 / 97);
+  height: 100%;
+  background: url("/icons/main_chunk3.svg");
+  background-repeat: no-repeat;
+  background-size: 70.09%auto;
+  background-position: top 7.44% left 35.98%;
+  z-index: 50;
 `;
 
 export default Home;
