@@ -10,43 +10,36 @@ import Image from "next/image";
 function Header() {
   return (
     <HeaderRoot>
-      <HeaderWrapper>
-        <ImageWrapper>
-          <Image src={brandstory} />
-        </ImageWrapper>
-        <ImageWrapper>
-          <Image src={brandguide} />
-        </ImageWrapper>
-        <Image src={chaesodam} />
-        <ImageWrapper>
-          <Image src={grocerybag} />
-        </ImageWrapper>
-        <ImageWrapper>
-          <Image src={weeklyfruit} />
-        </ImageWrapper>
-      </HeaderWrapper>
+      <ImageWrapper>
+        <Image src={brandstory} />
+      </ImageWrapper>
+      <ImageWrapper>
+        <Image src={brandguide} />
+      </ImageWrapper>
+      <Image src={chaesodam} />
+      <ImageWrapper>
+        <Image src={grocerybag} />
+      </ImageWrapper>
+      <ImageWrapper>
+        <Image src={weeklyfruit} />
+      </ImageWrapper>
     </HeaderRoot>
   );
 }
 
 const HeaderRoot = styled.div`
   display: flex;
-  justify-content: center;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 100;
-`;
-
-const HeaderWrapper = styled.div`
-  display: flex;
   justify-content: space-between;
   align-items: center;
   position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
   width: 1920px;
   padding: 13px 200px;
   background: #f6f0dc;
+  z-index: 100;
   box-sizing: border-box;
 `;
 

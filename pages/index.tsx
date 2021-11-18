@@ -79,6 +79,7 @@ const Home: NextPage = () => {
 };
 
 const HomeRoot = styled.div`
+  width: 100%;
   background: #f6f0dc;
 `;
 
