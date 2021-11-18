@@ -24,10 +24,8 @@ const Home: NextPage = () => {
   return (
     <HomeRoot>
       <Chunk1 id="chunk1">
-        <Image src={main1} width={1440} height={970} layout="fixed" />
-        <div id="letters">
-          <Image src={main_chunk1} />
-        </div>
+        <ImageArea />
+        <TextArea />
         <div id="fruit">
           <Image src={main_chunk1_fruit} />
         </div>
@@ -83,13 +81,17 @@ const HomeRoot = styled.div`
 `;
 
 const Chunk1 = styled.div`
-  display: flex;
   position: relative;
+  padding-top: calc(9 / 16 * 100% - 110px);
   background: #eb613a;
+
   #letters {
     display: flex;
     align-items: flex-end;
-    padding: 0 0 62.73px 37.3px;
+    position: absolute;
+    left: calc((9 / 16 * 100% - 110px) * 144 / 97 + 37.3px);
+    bottom: 62.73px;
+    width: 19.57%;
     z-index: 50;
   }
   #fruit {
@@ -107,6 +109,30 @@ const Chunk1 = styled.div`
       cursor: pointer;
     }
   }
+`;
+
+const ImageArea = styled.div`
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: calc((9 / 16 * 100% - 110px) * 144 / 97);
+  padding-top: calc(9 / 16 * 100% - 110px);
+  background: url("/images/main1.png");
+  background-repeat: no-repeat;
+  background-size: contain;
+`;
+
+const TextArea = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(100% - (9 / 16 * 100% - 110px) * 144 / 97);
+  padding-top: calc(9 / 16 * 100% - 110px);
+  background: url("/icons/main_chunk1.svg");
+  background-repeat: no-repeat;
+  background-size: calc(100% - 104.31px);
+  background-position: bottom 62.73px left 37.3px;
+  z-index: 50;
 `;
 
 const Chunk2 = styled.div`
