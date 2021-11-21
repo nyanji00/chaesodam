@@ -6,18 +6,36 @@ import grocerybag from "@/public/icons/grocerybag.svg";
 import weeklyfruit from "@/public/icons/weeklyfruit.svg";
 
 import Image from "next/image";
+import { useRouter } from "next/dist/client/router";
+import { useEffect, useState } from "react";
 
 function Header() {
+  const router = useRouter();
+  const handleItemClick = (to: string) => {
+    router.push(to);
+  };
+
+  const [background, setBackground] = useState<boolean>(true);
+  useEffect(() => {
+    if (router.route.startsWith("/grocery-bag")) {
+      setBackground(false);
+    } else {
+      setBackground(true);
+    }
+  }, [router.route]);
+
   return (
-    <HeaderRoot>
+    <HeaderRoot background={background}>
       <ImageWrapper>
         <Image src={brandstory} />
       </ImageWrapper>
       <ImageWrapper>
         <Image src={brandguide} />
       </ImageWrapper>
-      <Image src={chaesodam} />
-      <ImageWrapper>
+      <ImageWrapper2 onClick={() => handleItemClick("/")}>
+        <Image src={chaesodam} />
+      </ImageWrapper2>
+      <ImageWrapper onClick={() => handleItemClick("/grocery-bag")}>
         <Image src={grocerybag} />
       </ImageWrapper>
       <ImageWrapper>
@@ -27,7 +45,7 @@ function Header() {
   );
 }
 
-const HeaderRoot = styled.div`
+const HeaderRoot = styled.div<{ background: boolean }>`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -36,7 +54,7 @@ const HeaderRoot = styled.div`
   left: 0;
   width: 100vw;
   padding: 13px 200px;
-  background: #f6f0dc;
+  background: ${({ background }) => (background ? "#f6f0dc" : "none")};
   z-index: 100;
   box-sizing: border-box;
 `;
@@ -62,6 +80,10 @@ const ImageWrapper = styled.div`
     left: 0;
     width: 100%;
   }
+`;
+
+const ImageWrapper2 = styled.div`
+  cursor: pointer;
 `;
 
 export default Header;

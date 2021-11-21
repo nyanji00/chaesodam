@@ -1,17 +1,11 @@
 import styled from "@emotion/styled";
 import type { NextPage } from "next";
 import Image from "next/image";
-import main1 from "@/public/images/main1.png";
-import main_chunk1 from "@/public/icons/main_chunk1.svg";
 import main_chunk1_fruit from "@/public/icons/main_chunk1_fruit.svg";
 import double_arrow from "@/public/icons/double-arrow.svg";
-import main2 from "@/public/images/main2.png";
-import main_chunk2 from "@/public/icons/main_chunk2.svg";
 import main_chunk2_fruit1 from "@/public/icons/main_chunk2_fruit1.svg";
 import main_chunk2_fruit2 from "@/public/icons/main_chunk2_fruit2.svg";
 import arrow from "@/public/icons/arrow.svg";
-import main3 from "@/public/images/main3.png";
-import main_chunk3 from "@/public/icons/main_chunk3.svg";
 import main_chunk3_fruit from "@/public/icons/main_chunk3_fruit.svg";
 
 const Home: NextPage = () => {
@@ -74,6 +68,7 @@ const Home: NextPage = () => {
 };
 
 const HomeRoot = styled.div`
+  padding-top: 110px;
   background: #f6f0dc;
 `;
 
