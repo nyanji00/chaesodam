@@ -8,6 +8,7 @@ import weeklyfruit from "@/public/icons/weeklyfruit.svg";
 import Image from "next/image";
 import { useRouter } from "next/dist/client/router";
 import { useEffect, useState } from "react";
+import { css } from "@emotion/react";
 
 function Header() {
   const router = useRouter();
@@ -26,19 +27,25 @@ function Header() {
 
   return (
     <HeaderRoot background={background}>
-      <ImageWrapper>
+      <ImageWrapper isActive={router.route === "/brand-story"}>
         <Image src={brandstory} />
       </ImageWrapper>
-      <ImageWrapper>
+      <ImageWrapper isActive={router.route === "/brand-guide"}>
         <Image src={brandguide} />
       </ImageWrapper>
-      <ImageWrapper2 onClick={() => handleItemClick("/")}>
+      <LogoWrapper onClick={() => handleItemClick("/")}>
         <Image src={chaesodam} />
-      </ImageWrapper2>
-      <ImageWrapper onClick={() => handleItemClick("/grocery-bag")}>
+      </LogoWrapper>
+      <ImageWrapper
+        isActive={router.route === "/grocery-bag"}
+        onClick={() => handleItemClick("/grocery-bag")}
+      >
         <Image src={grocerybag} />
       </ImageWrapper>
-      <ImageWrapper>
+      <ImageWrapper
+        isActive={router.route === "/weekly-fruit-and-veg"}
+        onClick={() => handleItemClick("/weekly-fruit-and-veg")}
+      >
         <Image src={weeklyfruit} />
       </ImageWrapper>
     </HeaderRoot>
@@ -59,10 +66,12 @@ const HeaderRoot = styled.div<{ background: boolean }>`
   box-sizing: border-box;
 `;
 
-const ImageWrapper = styled.div`
+const ImageWrapper = styled.div<{ isActive: boolean }>`
   display: flex;
   justify-content: center;
   width: fit-content;
+  height: 44px;
+  padding: 0 2px;
   cursor: pointer;
   position: relative;
 
@@ -80,9 +89,18 @@ const ImageWrapper = styled.div`
     left: 0;
     width: 100%;
   }
+
+  ${({ isActive }) =>
+    isActive &&
+    css`
+      ::after {
+        left: 0;
+        width: 100%;
+      }
+    `}
 `;
 
-const ImageWrapper2 = styled.div`
+const LogoWrapper = styled.div`
   cursor: pointer;
 `;
 
