@@ -9,7 +9,6 @@ import { useEffect } from "react";
 function MyApp({ Component, pageProps }: AppProps) {
   useEffect(() => {
     AOS.init({
-      once: true,
       offset: 100,
       easing: "ease-in-out",
       duration: 800,
