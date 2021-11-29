@@ -34,7 +34,10 @@ function Header() {
       >
         <Image src={brandstory} />
       </ImageWrapper>
-      <ImageWrapper isActive={router.route === "/brand-guide"}>
+      <ImageWrapper
+        isActive={router.route === "/brand-guide"}
+        onClick={() => handleItemClick("/brand-guide")}
+      >
         <Image src={brandguide} />
       </ImageWrapper>
       <LogoWrapper onClick={() => handleItemClick("/")}>
