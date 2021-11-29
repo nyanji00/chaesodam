@@ -1,7 +1,5 @@
 import styled from "@emotion/styled";
 import Header from "./Header";
-import Image from "next/image";
-import copyright from "@/public/icons/copyright.svg";
 import { useRouter } from "next/dist/client/router";
 
 interface LayoutProps {

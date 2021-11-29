@@ -7,6 +7,9 @@ const Home: NextPage = () => {
   const settings = {
     draggable: false,
     fade: true,
+    autoplay: true,
+    autoplaySpeed: 7500,
+    pauseOnHover: false,
   };
 
   return (
