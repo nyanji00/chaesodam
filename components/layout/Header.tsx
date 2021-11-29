@@ -28,7 +28,10 @@ function Header() {
 
   return (
     <HeaderRoot background={background}>
-      <ImageWrapper isActive={router.route === "/brand-story"}>
+      <ImageWrapper
+        isActive={router.route === "/brand-story"}
+        onClick={() => handleItemClick("/brand-story")}
+      >
         <Image src={brandstory} />
       </ImageWrapper>
       <ImageWrapper isActive={router.route === "/brand-guide"}>
