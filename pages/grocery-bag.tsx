@@ -35,7 +35,7 @@ const GroceryBagRoot = styled.div`
   width: 100%;
   height: 100vh;
   padding-top: ${HEADER_HEIGHT}px;
-  background: url("/images/grocerybag_background.png");
+  background: url("/images/grocery-bag/grocerybag_background.png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: bottom 0;

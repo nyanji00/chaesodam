@@ -30,7 +30,7 @@ const LayoutRoot = styled.div`
 
 const Copyright = styled.div`
   position: absolute;
-  bottom: 36.18px;
+  bottom: 33.22px;
   right: 200.18px;
 `;
 
