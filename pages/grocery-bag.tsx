@@ -43,13 +43,13 @@ const GroceryBagRoot = styled.div`
 
 const TextContainer = styled.div`
   width: 38.9%;
-  padding: 4.91vh 0 0 230px;
+  padding: 4.91vh 0 0 calc(10.42% + 30px);
 `;
 
 const SliderWrapper = styled.div`
   position: relative;
   width: 26.04%;
-  padding: 4.24vh 0 0 250px;
+  padding: 4.24vh 0 0 calc(10.42% + 50px);
   .slick-slider {
     width: 100%;
     height: 100%;

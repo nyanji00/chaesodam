@@ -54,14 +54,14 @@ const GroceryBagRoot = styled.div`
 
 const TextContainer = styled.div`
   width: 31.49%;
-  padding: 4.95vh 0 0 230px;
+  padding: 4.95vh 0 0 calc(10.42% + 30px);
 `;
 
 const ImageContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   position: relative;
-  padding: 0 200px;
+  padding: 0 10.42%;
 `;
 
 const ImagePanel = styled.div<{ background: string }>`
