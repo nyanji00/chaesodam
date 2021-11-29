@@ -1,14 +1,15 @@
 import styled from "@emotion/styled";
-import chaesodam from "@/public/icons/chaesodam.svg";
-import brandguide from "@/public/icons/brandguide.svg";
-import brandstory from "@/public/icons/brandstory.svg";
-import grocerybag from "@/public/icons/grocerybag.svg";
-import weeklyfruit from "@/public/icons/weeklyfruit.svg";
+import chaesodam from "@/public/icons/header/chaesodam.svg";
+import brandguide from "@/public/icons/header/brandguide.svg";
+import brandstory from "@/public/icons/header/brandstory.svg";
+import grocerybag from "@/public/icons/header/grocerybag.svg";
+import weeklyfruit from "@/public/icons/header/weeklyfruit.svg";
 
 import Image from "next/image";
 import { useRouter } from "next/dist/client/router";
 import { useEffect, useState } from "react";
 import { css } from "@emotion/react";
+import { HEADER_HEIGHT } from "@/constants/components";
 
 function Header() {
   const router = useRouter();
@@ -27,10 +28,16 @@ function Header() {
 
   return (
     <HeaderRoot background={background}>
-      <ImageWrapper isActive={router.route === "/brand-story"}>
+      <ImageWrapper
+        isActive={router.route === "/brand-story"}
+        onClick={() => handleItemClick("/brand-story")}
+      >
         <Image src={brandstory} />
       </ImageWrapper>
-      <ImageWrapper isActive={router.route === "/brand-guide"}>
+      <ImageWrapper
+        isActive={router.route === "/brand-guide"}
+        onClick={() => handleItemClick("/brand-guide")}
+      >
         <Image src={brandguide} />
       </ImageWrapper>
       <LogoWrapper onClick={() => handleItemClick("/")}>
@@ -60,8 +67,9 @@ const HeaderRoot = styled.div<{ background: boolean }>`
   top: 0;
   left: 0;
   width: 100vw;
-  padding: 13px 200px;
-  background: ${({ background }) => (background ? "#f6f0dc" : "none")};
+  height: ${HEADER_HEIGHT}px;
+  padding: 0 200px;
+  background: ${({ background }) => (background ? "#FFFAEA" : "none")};
   z-index: 100;
   box-sizing: border-box;
 `;
