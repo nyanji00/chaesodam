@@ -1,22 +1,11 @@
 import { HEADER_HEIGHT } from "@/constants/components";
 import styled from "@emotion/styled";
 import type { NextPage } from "next";
-import Image from "next/image";
 import Slider from "react-slick";
-import main1 from "@/public/images/main1.png";
-import main2 from "@/public/images/main2.png";
-import main3 from "@/public/images/main3.png";
 
 const Home: NextPage = () => {
-  const handleArrowClick = (id: string) => {
-    document
-      .getElementById(id)
-      ?.scrollIntoView({ behavior: "smooth", block: "end" });
-  };
-
   const settings = {
     draggable: false,
-    infinite: true,
     fade: true,
   };
 

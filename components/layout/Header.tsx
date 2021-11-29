@@ -62,7 +62,7 @@ const HeaderRoot = styled.div<{ background: boolean }>`
   left: 0;
   width: 100vw;
   height: ${HEADER_HEIGHT}px;
-  padding: 13px 200px;
+  padding: 0 200px;
   background: ${({ background }) => (background ? "#FFFAEA" : "none")};
   z-index: 100;
   box-sizing: border-box;

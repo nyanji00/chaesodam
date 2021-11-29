@@ -15,11 +15,7 @@ function Layout({ children }: LayoutProps) {
     <>
       <Header />
       {children}
-      {router.route !== "/" && (
-        <Copyright>
-          <Image src={copyright} />
-        </Copyright>
-      )}
+      {router.route !== "/" && <Copyright></Copyright>}
     </>
   );
 }
