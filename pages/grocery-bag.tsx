@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
 import { NextPage } from "next";
-import grocery_title from "@/public/icons/grocery_title.svg";
-import grocery_description from "@/public/icons/grocery_description.svg";
+import description from "@/public/images/grocery-bag/description.svg";
 import Image from "next/image";
 import Slider from "react-slick";
+import { HEADER_HEIGHT } from "@/constants/components";
 
 const GroceryBag: NextPage = () => {
   const settings = {
@@ -14,19 +14,17 @@ const GroceryBag: NextPage = () => {
   return (
     <GroceryBagRoot>
       <TextContainer>
-        <Image src={grocery_title} />
-        <div style={{ marginTop: "27.11px" }} />
-        <Image src={grocery_description} />
+        <Image src={description} layout="responsive" />
       </TextContainer>
       <SliderWrapper>
         <Slider {...settings}>
-          <Bag background="/icons/bag1.svg" />
-          <Bag background="/icons/bag2.svg" />
-          <Bag background="/icons/bag3.svg" />
-          <Bag background="/icons/bag4.svg" />
-          <Bag background="/icons/bag5.svg" />
-          <Bag background="/icons/bag6.svg" />
-          <Bag background="/icons/bag7.svg" />
+          <Bag index={1} />
+          <Bag index={2} />
+          <Bag index={3} />
+          <Bag index={4} />
+          <Bag index={5} />
+          <Bag index={6} />
+          <Bag index={7} />
         </Slider>
       </SliderWrapper>
     </GroceryBagRoot>
@@ -36,6 +34,7 @@ const GroceryBag: NextPage = () => {
 const GroceryBagRoot = styled.div`
   width: 100%;
   height: 100vh;
+  padding-top: ${HEADER_HEIGHT}px;
   background: url("/images/grocerybag_background.png");
   background-repeat: no-repeat;
   background-size: cover;
@@ -43,16 +42,14 @@ const GroceryBagRoot = styled.div`
 `;
 
 const TextContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 151.48px 0 0 230.96px;
+  width: 38.9%;
+  padding: 4.91vh 0 0 230px;
 `;
 
 const SliderWrapper = styled.div`
   position: relative;
   width: 26.04%;
-  padding: 45.84px 0 0 215px;
+  padding: 4.24vh 0 0 250px;
   .slick-slider {
     width: 100%;
     height: 100%;
@@ -60,8 +57,8 @@ const SliderWrapper = styled.div`
       position: absolute;
       top: 0;
       bottom: 0;
-      width: 16px;
-      height: 52px;
+      width: 20px;
+      height: 65px;
       margin: auto;
       padding: 0;
       font-size: 0;
@@ -71,10 +68,14 @@ const SliderWrapper = styled.div`
     .slick-prev {
       left: -16px;
       background: url("/icons/prev.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
     }
     .slick-next {
       right: -16px;
       background: url("/icons/next.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
     }
     .slick-disabled {
       display: none !important;
@@ -86,10 +87,10 @@ const SliderWrapper = styled.div`
   }
 `;
 
-const Bag = styled.div<{ background: string }>`
+const Bag = styled.div<{ index: number }>`
   width: 26.04%;
   padding-top: 100%;
-  background: url(${({ background }) => background});
+  background: url(${({ index }) => `/images/grocery-bag/bag${index}.png`});
   background-repeat: no-repeat;
   background-size: contain;
 `;
