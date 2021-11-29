@@ -1,9 +1,9 @@
 import styled from "@emotion/styled";
-import chaesodam from "@/public/icons/chaesodam.svg";
-import brandguide from "@/public/icons/brandguide.svg";
-import brandstory from "@/public/icons/brandstory.svg";
-import grocerybag from "@/public/icons/grocerybag.svg";
-import weeklyfruit from "@/public/icons/weeklyfruit.svg";
+import chaesodam from "@/public/icons/header/chaesodam.svg";
+import brandguide from "@/public/icons/header/brandguide.svg";
+import brandstory from "@/public/icons/header/brandstory.svg";
+import grocerybag from "@/public/icons/header/grocerybag.svg";
+import weeklyfruit from "@/public/icons/header/weeklyfruit.svg";
 
 import Image from "next/image";
 import { useRouter } from "next/dist/client/router";
