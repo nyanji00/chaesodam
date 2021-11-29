@@ -9,6 +9,7 @@ import Image from "next/image";
 import { useRouter } from "next/dist/client/router";
 import { useEffect, useState } from "react";
 import { css } from "@emotion/react";
+import { HEADER_HEIGHT } from "@/constants/components";
 
 function Header() {
   const router = useRouter();
@@ -60,6 +61,7 @@ const HeaderRoot = styled.div<{ background: boolean }>`
   top: 0;
   left: 0;
   width: 100vw;
+  height: ${HEADER_HEIGHT}px;
   padding: 13px 200px;
   background: ${({ background }) => (background ? "#FFFAEA" : "none")};
   z-index: 100;

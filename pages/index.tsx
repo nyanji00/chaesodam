@@ -1,12 +1,11 @@
+import { HEADER_HEIGHT } from "@/constants/components";
 import styled from "@emotion/styled";
 import type { NextPage } from "next";
 import Image from "next/image";
-import main_chunk1_fruit from "@/public/icons/main_chunk1_fruit.svg";
-import double_arrow from "@/public/icons/double-arrow.svg";
-import main_chunk2_fruit1 from "@/public/icons/main_chunk2_fruit1.svg";
-import main_chunk2_fruit2 from "@/public/icons/main_chunk2_fruit2.svg";
-import arrow from "@/public/icons/arrow.svg";
-import main_chunk3_fruit from "@/public/icons/main_chunk3_fruit.svg";
+import Slider from "react-slick";
+import main1 from "@/public/images/main1.png";
+import main2 from "@/public/images/main2.png";
+import main3 from "@/public/images/main3.png";
 
 const Home: NextPage = () => {
   const handleArrowClick = (id: string) => {
@@ -15,205 +14,67 @@ const Home: NextPage = () => {
       ?.scrollIntoView({ behavior: "smooth", block: "end" });
   };
 
+  const settings = {
+    draggable: false,
+    infinite: true,
+    fade: true,
+  };
+
   return (
     <HomeRoot>
-      <Chunk1 id="chunk1">
-        <ImageArea1 />
-        <TextArea1 />
-        <div id="fruit">
-          <Image src={main_chunk1_fruit} />
-        </div>
-        <div id="arrow">
-          <div onClick={() => handleArrowClick("chunk2")}>
-            <Image src={double_arrow} />
-          </div>
-        </div>
-      </Chunk1>
-
-      <div style={{ marginTop: "160px" }} />
-
-      <Chunk2 id="chunk2">
-        <TextArea2>
-          <div id="fruit1">
-            <Image src={main_chunk2_fruit1} />
-          </div>
-        </TextArea2>
-        <ImageArea2 />
-        <div id="fruit2">
-          <Image src={main_chunk2_fruit2} />
-        </div>
-        <div id="arrow">
-          <div onClick={() => handleArrowClick("chunk3")}>
-            <Image src={arrow} />
-          </div>
-        </div>
-      </Chunk2>
-
-      <div style={{ marginTop: "160px" }} />
-
-      <Chunk3 id="chunk3">
-        <ImageArea3 />
-        <TextArea3 />
-        <div id="fruit">
-          <Image src={main_chunk3_fruit} />
-        </div>
-        <div id="arrow">
-          <div onClick={() => handleArrowClick("chunk1")}>
-            <Image src={double_arrow} />
-          </div>
-        </div>
-      </Chunk3>
+      <Slider {...settings}>
+        <ImageContainer index={1} />
+        <ImageContainer index={2} />
+        <ImageContainer index={3} />
+      </Slider>
     </HomeRoot>
   );
 };
 
 const HomeRoot = styled.div`
-  padding-top: 110px;
-  background: #f6f0dc;
-`;
-
-const Chunk1 = styled.div`
   position: relative;
-  height: calc(100vh - 110px);
-  background: #eb613a;
-
-  #fruit {
-    position: absolute;
-    right: 0;
-    bottom: -50px;
-  }
-  #arrow {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    bottom: 0;
+  height: calc(100vh - ${HEADER_HEIGHT}px);
+  padding-top: ${HEADER_HEIGHT}px;
+  background: #fffaea;
+  .slick-slider {
     width: 100%;
-    div {
+    height: 100%;
+    .slick-arrow {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      width: 20px;
+      height: 65px;
+      margin: auto;
+      padding: 0;
+      font-size: 0;
       cursor: pointer;
+      z-index: 100;
+    }
+    .slick-prev {
+      left: 30px;
+      background: url("/icons/prev.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .slick-next {
+      right: 30px;
+      background: url("/icons/next.svg");
+      background-size: contain;
+      background-repeat: no-repeat;
+    }
+    .slick-list {
+      width: 100%;
+      height: 100%;
     }
   }
 `;
 
-const ImageArea1 = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: calc((100vh - 110px) * 144 / 97);
-  height: 100%;
-  background: url("/images/main1.png");
+const ImageContainer = styled.div<{ index: number }>`
+  height: calc(100vh - ${HEADER_HEIGHT}px);
+  background: url(${({ index }) => `/images/main${index}.png`});
   background-repeat: no-repeat;
-  background-size: contain;
-`;
-
-const TextArea1 = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: calc(100% - (100vh - 110px) * 144 / 97);
-  height: 100%;
-  background: url("/icons/main_chunk1.svg");
-  background-repeat: no-repeat;
-  background-size: calc(100% - 104.31px);
-  background-position: bottom 9.56% left 35.48%;
-  z-index: 50;
-`;
-
-const Chunk2 = styled.div`
-  position: relative;
-  height: calc(100vh - 110px);
-  background: #235b4e;
-
-  #fruit1 {
-    position: absolute;
-    top: -50px;
-    right: -45.91px;
-  }
-  #fruit2 {
-    position: absolute;
-    left: 0;
-    bottom: -50px;
-  }
-  #arrow {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    div {
-      cursor: pointer;
-    }
-  }
-`;
-
-const ImageArea2 = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: calc((100vh - 110px) * 144 / 97);
-  height: 100%;
-  background: url("/images/main2.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-`;
-
-const TextArea2 = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: calc(100% - (100vh - 110px) * 144 / 97);
-  height: 100%;
-  background: url("/icons/main_chunk2.svg");
-  background-repeat: no-repeat;
-  background-size: 58.65%;
-  background-position: bottom 9.63% right 18.4%;
-  z-index: 50;
-`;
-
-const Chunk3 = styled.div`
-  position: relative;
-  height: calc(100vh - 110px);
-  background: #e4007f;
-
-  #fruit {
-    position: absolute;
-    right: 0;
-    top: -50px;
-  }
-  #arrow {
-    display: flex;
-    justify-content: center;
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    transform: rotate(-180deg);
-    div {
-      cursor: pointer;
-    }
-  }
-`;
-
-const ImageArea3 = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: calc((100vh - 110px) * 144 / 97);
-  height: 100%;
-  background: url("/images/main3.png");
-  background-repeat: no-repeat;
-  background-size: contain;
-`;
-
-const TextArea3 = styled.div`
-  position: absolute;
-  top: 0;
-  right: 0;
-  width: calc(100% - (100vh - 110px) * 144 / 97);
-  height: 100%;
-  background: url("/icons/main_chunk3.svg");
-  background-repeat: no-repeat;
-  background-size: 70.09%auto;
-  background-position: top 7.44% left 35.98%;
-  z-index: 50;
+  background-size: cover;
 `;
 
 export default Home;

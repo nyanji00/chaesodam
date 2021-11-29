@@ -3,6 +3,7 @@ import { NextPage } from "next";
 import weekly_title from "@/public/icons/weekly_title.svg";
 import weekly_description from "@/public/icons/weekly_description.svg";
 import Image from "next/image";
+import { HEADER_HEIGHT } from "@/constants/components";
 
 const WeeklyFruitAndVeg: NextPage = () => {
   const images = [
@@ -72,9 +73,9 @@ const ImageContainer = styled.div`
 `;
 
 const ImagePanel = styled.div<{ background: string }>`
-  width: calc((100% - 110px) / 3);
+  width: calc((100% - ${HEADER_HEIGHT}px) / 3);
   margin: 0 55px 112px 0;
-  padding-top: calc((100% - 110px) / 3 * 1.12);
+  padding-top: calc((100% - ${HEADER_HEIGHT}px) / 3 * 1.12);
   background: url(${({ background }) => background});
   background-repeat: no-repeat;
   background-size: contain;
@@ -84,7 +85,7 @@ const ImagePanel = styled.div<{ background: string }>`
   :nth-last-child(4),
   :nth-last-child(3),
   :nth-last-child(2) {
-    padding-top: calc((100% - 110px) / 3);
+    padding-top: calc((100% - ${HEADER_HEIGHT}px) / 3);
     margin-bottom: 0;
   }
 `;
