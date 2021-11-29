@@ -43,7 +43,7 @@ const WeeklyFruitAndVeg: NextPage = () => {
 };
 
 const GroceryBagRoot = styled.div`
-  background: #f6f0dc;
+  background: #fffaea;
 
   [data-aos="fade-up-custom"] {
     opacity: 0;
@@ -96,7 +96,7 @@ const Overlay = styled.div`
   height: 345px;
   background: linear-gradient(
     0deg,
-    #f6f0dc 0%,
+    #fffaea 0%,
     rgba(246, 240, 220, 0.498897) 53.76%,
     rgba(246, 240, 220, 0) 100%
   );
