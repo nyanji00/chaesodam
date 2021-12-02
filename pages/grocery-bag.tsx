@@ -33,7 +33,7 @@ const GroceryBag: NextPage = () => {
 
 const GroceryBagRoot = styled.div`
   width: 100%;
-  height: 100vh;
+  height: calc(100vh - ${HEADER_HEIGHT}px);
   padding-top: ${HEADER_HEIGHT}px;
   background: url("/images/grocery-bag/grocerybag_background.png");
   background-repeat: no-repeat;
