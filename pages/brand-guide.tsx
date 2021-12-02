@@ -11,19 +11,19 @@ import { HEADER_HEIGHT } from "@/constants/components";
 function BrandGuide() {
   return (
     <BrandGuideRoot>
-      <ImageContainer index={1}>
+      <ImageContainer index={0}>
         <Image src={one} />
       </ImageContainer>
-      <ImageContainer index={2}>
+      <ImageContainer index={1}>
         <Image src={two} />
       </ImageContainer>
-      <ImageContainer index={3}>
+      <ImageContainer index={2}>
         <Image src={three} />
       </ImageContainer>
-      <ImageContainer index={4}>
+      <ImageContainer index={3}>
         <Image src={four} />
       </ImageContainer>
-      <ImageContainer index={5}>
+      <ImageContainer index={4}>
         <Image src={five} />
       </ImageContainer>
       <BagImageContainer>
