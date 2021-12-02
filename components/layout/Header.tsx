@@ -29,12 +29,14 @@ function Header() {
   return (
     <HeaderRoot background={background}>
       <ImageWrapper
+        className="brand-story"
         isActive={router.route === "/brand-story"}
         onClick={() => handleItemClick("/brand-story")}
       >
         <Image src={brandstory} />
       </ImageWrapper>
       <ImageWrapper
+        className="brand-guide"
         isActive={router.route === "/brand-guide"}
         onClick={() => handleItemClick("/brand-guide")}
       >
@@ -44,12 +46,14 @@ function Header() {
         <Image src={chaesodam} />
       </LogoWrapper>
       <ImageWrapper
+        className="grocery-bag"
         isActive={router.route === "/grocery-bag"}
         onClick={() => handleItemClick("/grocery-bag")}
       >
         <Image src={grocerybag} />
       </ImageWrapper>
       <ImageWrapper
+        className="weekly-fruit-and-veg"
         isActive={router.route === "/weekly-fruit-and-veg"}
         onClick={() => handleItemClick("/weekly-fruit-and-veg")}
       >
@@ -61,7 +65,7 @@ function Header() {
 
 const HeaderRoot = styled.div<{ background: boolean }>`
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   position: fixed;
   top: 0;
@@ -72,6 +76,19 @@ const HeaderRoot = styled.div<{ background: boolean }>`
   background: ${({ background }) => (background ? "#FFFAEA" : "none")};
   z-index: 100;
   box-sizing: border-box;
+
+  .brand-story {
+    left: 200px;
+  }
+  .brand-guide {
+    left: calc((50vw - 339px) / 2 + 249.5px);
+  }
+  .grocery-bag {
+    right: calc((50vw - 407px) / 2 + 316px);
+  }
+  .weekly-fruit-and-veg {
+    right: 200px;
+  }
 `;
 
 const ImageWrapper = styled.div<{ isActive: boolean }>`
@@ -81,7 +98,7 @@ const ImageWrapper = styled.div<{ isActive: boolean }>`
   height: 44px;
   padding: 0 2px;
   cursor: pointer;
-  position: relative;
+  position: absolute;
 
   ::after {
     position: absolute;
