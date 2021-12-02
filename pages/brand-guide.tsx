@@ -11,20 +11,20 @@ import { HEADER_HEIGHT } from "@/constants/components";
 function BrandGuide() {
   return (
     <BrandGuideRoot>
-      <ImageContainer index={0}>
-        <Image src={one} />
+      <ImageContainer className="one" index={0}>
+        <Image src={one} layout="responsive" />
       </ImageContainer>
-      <ImageContainer index={1}>
-        <Image src={two} />
+      <ImageContainer className="two" index={1}>
+        <Image src={two} layout="responsive" />
       </ImageContainer>
-      <ImageContainer index={2}>
-        <Image src={three} />
+      <ImageContainer className="three" index={2}>
+        <Image src={three} layout="responsive" />
       </ImageContainer>
-      <ImageContainer index={3}>
-        <Image src={four} />
+      <ImageContainer className="four" index={3}>
+        <Image src={four} layout="responsive" />
       </ImageContainer>
-      <ImageContainer index={4}>
-        <Image src={five} />
+      <ImageContainer className="five" index={4}>
+        <Image src={five} layout="responsive" />
       </ImageContainer>
       <BagImageContainer>
         <Image src={fruit_bag} layout="responsive" />
@@ -38,10 +38,25 @@ const BrandGuideRoot = styled.div`
   min-height: calc(100vh - ${HEADER_HEIGHT}px);
   padding-top: ${HEADER_HEIGHT}px;
   background: #fffaea;
+  .one {
+    width: 33.13%;
+  }
+  .two {
+    width: 25.47%;
+  }
+  .three {
+    width: 22.42%;
+  }
+  .four {
+    width: 21.24%;
+  }
+  .five {
+    width: 43.25%;
+  }
 `;
 
 const ImageContainer = styled.div<{ index: number }>`
-  padding-left: 230px;
+  padding-left: 11.98%;
   :first-of-type {
     padding-top: 4.82vh;
   }
