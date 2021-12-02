@@ -2,6 +2,10 @@ import { HEADER_HEIGHT } from "@/constants/components";
 import styled from "@emotion/styled";
 import type { NextPage } from "next";
 import Slider from "react-slick";
+import Image from "next/image";
+import text1 from "@/public/images/main/text1.svg";
+import text2 from "@/public/images/main/text2.svg";
+import text3 from "@/public/images/main/text3.svg";
 
 const Home: NextPage = () => {
   const settings = {
@@ -15,9 +19,21 @@ const Home: NextPage = () => {
   return (
     <HomeRoot>
       <Slider {...settings}>
-        <ImageContainer index={1} />
-        <ImageContainer index={2} />
-        <ImageContainer index={3} />
+        <ImageContainer index={1}>
+          <TextContainer>
+            <Image src={text1} />
+          </TextContainer>
+        </ImageContainer>
+        <ImageContainer index={2}>
+          <TextContainer>
+            <Image src={text2} />
+          </TextContainer>
+        </ImageContainer>
+        <ImageContainer index={3}>
+          <TextContainer>
+            <Image src={text3} />
+          </TextContainer>
+        </ImageContainer>
       </Slider>
     </HomeRoot>
   );
@@ -63,10 +79,23 @@ const HomeRoot = styled.div`
 `;
 
 const ImageContainer = styled.div<{ index: number }>`
+  position: relative;
   height: calc(100vh - ${HEADER_HEIGHT}px);
   background: url(${({ index }) => `/images/main${index}.png`});
   background-repeat: no-repeat;
   background-size: cover;
+`;
+
+const TextContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
 `;
 
 export default Home;
